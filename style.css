@@ -1,0 +1,153 @@
+/* ====== ESTILO GERAL ====== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* ====== PÁGINA 1 ====== */
+.page1 {
+  background: linear-gradient(135deg, #ff0844, #ff5f7e, #b2004c);
+  overflow: hidden;
+  animation: bgMove 8s ease-in-out infinite alternate;
+  text-align: center;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.foto {
+  width: 250px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.texto-amor {
+  margin: 20px 0;
+  color: #333;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #ff0844, #ff5f7e, #b2004c);
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #0044aa;
+}
+
+/* ====== PÁGINA 2 ====== */
+.page2 {
+  background: linear-gradient(135deg, #ff0844, #ff5f7e, #b2004c);
+  overflow: hidden;
+  animation: bgMove 8s ease-in-out infinite alternate; /* degrade animado */
+}
+
+/* animação degrade */
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Container da foto + texto lado a lado */
+.page2 .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  z-index: 1;
+  position: relative;
+  backdrop-filter: blur(8px);
+}
+
+.foto-grande {
+  max-width: 45%;
+  border-radius: 20px;
+  z-index: 1;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+}
+
+.foto-grande:hover {
+  transform: scale(1.05);
+}
+
+.texto-amor2 {
+  max-width: 40%;
+  color: #fff;
+  font-size: 1.4em;
+  line-height: 1.6;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255, 80, 120, 0.8), 0 0 20px rgba(255, 0, 80, 0.6);
+  animation: pulse 2s infinite;
+}
+
+/* batida de coração */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* ====== CORAÇÕES SUBINDO ====== */
+.background-loves {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  bottom: -50px;
+  font-size: 30px;
+  color: rgba(255, 255, 255, 0.8);
+  animation: floatHeart linear infinite;
+}
+
+@keyframes floatHeart {
+  0% { transform: translateY(100vh) scale(1); opacity: 0; }
+  20% { opacity: 1; }
+  50% { transform: translateY(50vh) scale(1.2); }
+  80% { opacity: 1; }
+  100% { transform: translateY(-100px) scale(1); opacity: 0; }
+}
+
+/* ====== RESPONSIVIDADE ====== */
+@media (max-width: 768px) {
+  .page2 .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .foto-grande {
+    max-width: 80%;
+  }
+
+  .texto-amor2 {
+    max-width: 90%;
+    font-size: 1.1em;
+    margin-top: 15px;
+  }
+}
